@@ -1,0 +1,423 @@
+
+
+                                     LOADEST
+                      A Program to Estimate Constituent Loads
+                U.S. Geological Survey, Version: MOD48 (March 2013)
+                -------------------------------------------------
+
+ White River at Hazleton IN (Station #03374100)                                  
+
+ Constituent: atrazine                                     
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part Ia: Calibration (Load Regression)
+
+ ----------------------------------------------------------------------
+
+ Number of Observations           :    45
+ Number of Uncensored Observations:    45
+ "center" of Decimal Time         :   1993.800
+ "center" of Ln(Q)                :    9.4824
+ Period of record                 :    1992-1994
+
+
+ Model Evaluation Criteria Based on AMLE Results
+ -----------------------------------------------
+
+ Model #     AIC           SPPC
+ ----------------------------------
+  1           3.643         -83.765
+  2           3.635         -84.494
+  3           3.688         -85.695
+  4           2.537         -60.694
+  5           3.671         -86.204
+  6           2.581         -62.582
+  7           2.578         -62.521
+  8           2.625         -64.478
+  9           2.557         -63.858
+
+ Model # 4 selected
+
+
+ Selected Model:
+ ---------------
+
+ Ln(Load) = a0 + a1 LnQ + a2 Sin(2 pi dtime) + a3 Cos(2 pi dtime)
+
+ where:
+       Load  = constituent load [kg/d]
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+       Model Coefficients
+
+        a0        a1        a2        a3
+       ----------------------------------------
+ AMLE   2.6702    1.2294   -1.7281   -0.7581
+ MLE    2.6702    1.2294   -1.7281   -0.7581
+ LAD    2.6803    1.2739   -1.6537   -0.6486
+
+
+ AMLE Regression Statistics
+ --------------------------
+ R-Squared [%]                  : 72.82
+ Residual Variance              : 0.6772
+ Serial Correlation of Residuals: 0.5377
+ Prob. Plot Corr. Coeff. (PPCC) : 0.9915
+ Significance Level of PPCC Test: 6.536E-01
+
+
+ Coeff.    Std.Dev.    t-ratio      P Value
+ --------------------------------------------
+ a0        0.1330        20.07      4.027E-25
+ a1        0.1692         7.27      1.042E-09
+ a2        0.2136        -8.09      5.628E-11
+ a3        0.1831        -4.14      7.356E-05
+
+
+ Correlation Between Explanatory Variables
+ -----------------------------------------
+
+       Explanatory variable corresponding to:
+
+        a1        a2
+       --------------------
+   a2   0.5146
+   a3  -0.0575    0.0990
+
+
+ Additional Regression Statistics
+ --------------------------------
+ MLE Residual Variance: 0.6772
+
+
+
+ Comparison of Observed and Estimated Loads
+ ------------------------------------------
+   The summary statistics and bias diagnostics presented below are based
+ on a comparison of observed and estimated loads for all dates/times within 
+ the calibration data set. Although this comparison does not directly 
+ address errors in load estimation for unsampled dates/times, large 
+ discrepancies between observed and estimated loads are indicative of a 
+ poor model fit. Additional details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Loads in [LBS/DAY]
+ --------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+        -----------------------------------------------------------------------
+ Est.   3.39E+00 2.62E+01 8.99E+01 1.89E+02 2.43E+02 4.18E+02 5.01E+02 5.01E+02
+ Obs.   4.27E+00 1.48E+01 4.65E+01 1.42E+02 4.44E+02 7.02E+02 8.93E+02 8.93E+02
+ Est/Obs    0.80     1.77     1.93     1.33     0.55     0.60     0.56     0.56
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]   -10.325
+ PLR        0.897
+ E          0.499
+
+ where:
+
+    Bp  Load Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PLR Partial Load Ratio
+        Sum of estimated loads divided by sum of observed loads.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PLR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part Ib: Calibration (Concentration Regression)
+
+ ----------------------------------------------------------------------
+
+
+
+ AMLE Regression Statistics
+ --------------------------
+
+ Model # 4 was selected for the load regression (PART Ia) and is used here:
+
+ Ln(Conc) = a0 + a1 LnQ + a2 Sin(2 pi dtime) + a3 Cos(2 pi dtime)
+
+ where:
+       Conc  = constituent concentration
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+ Concentration Regression Results
+ --------------------------------
+ R-Squared [%]                  : 71.78
+ Residual Variance              : 0.6772
+
+ Coeff.    Value         Std.Dev.     t-ratio     P Value
+ ----------------------------------------------------------
+ a0       -0.7991        0.1330       -6.01       9.789E-08
+ a1        0.2294        0.1692        1.36       1.600E-01
+ a2       -1.7281        0.2136       -8.09       5.628E-11
+ a3       -0.7581        0.1831       -4.14       7.356E-05
+
+
+ Comparison of Observed and Estimated Concentrations
+ ---------------------------------------------------
+   The summary statistics and bias diagnostics presented below are
+ based on a comparison of observed and estimated concentrations for
+ all dates/times within the calibration data set. Although this
+ comparison does not directly address errors in concentration estimation
+ for unsampled dates/times, large discrepancies between observed and
+ estimated concentrations are indicative of a poor model fit. Additional
+ details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Concentrations in      UG/L
+ -----------------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+       ------------------------------------------------------------------------
+ Est.   8.10E-02 2.62E-01 1.79E+00 2.89E+00 3.66E+00 3.94E+00 4.38E+00 4.38E+00
+ Obs.   6.00E-02 2.05E-01 6.70E-01 2.50E+00 7.08E+00 1.02E+01 1.28E+01 1.28E+01
+ Est/Obs    1.35     1.28     2.67     1.16     0.52     0.39     0.34     0.34
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]   -13.912
+ PCR        0.861
+ E          0.445
+
+ where:
+
+    Bp  Concentration Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PCR Partial Concentration Ratio
+        Sum of est. concentrations divided by sum of obs. concentrations.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PCR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part IIa: Estimation (test for extrapolation)
+
+                 Load Estimates for 19921001-19940930
+ ----------------------------------------------------------------------
+
+
+
+ Streamflow Summary Statistics [cfs]
+ -----------------------------------
+
+ Data    Mean  Minimum 10th Pct 25th Pct   Median 75th Pct 90th Pct  Maximum
+ ---------------------------------------------------------------------------
+ Cal.  17632.    1870.    4198.    6515.   11500.   21050.   32080.  113000.
+ Est.  15788.    1280.    2804.    6378.   11100.   20225.   32170.  120000.
+
+ WARNING: The maximum estimation data set steamflow exceeds the maximum
+ calibration data set streamflow.  Load estimates require extrapolation.
+
+ Maximum Estimation Streamflow :  1.2000E+05
+ Maximum Calibration Streamflow:  1.1300E+05
+
+
+
+
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part IIb: Estimation (Load Estimates)
+
+                 Load Estimates for 19921001-19940930
+ ----------------------------------------------------------------------
+
+
+
+ Load Estimates [LBS/DAY]
+ ------------------------
+
+
+              AMLE Load Estimates
+              -------------------
+
+                                 95% Conf.Intervals
+                         Mean    ------------------   Std Error   Standard
+                 N       Load      Lower      Upper  Prediction      Error
+              ------------------------------------------------------------
+Est. Period    730      83.14      56.26     118.48       15.94      15.11
+Season  1      184     174.15     102.05     278.33       45.31      42.28
+Season  2      184     116.20      74.86     172.38       25.01      22.30
+Season  3      182      25.39      14.16      42.14        7.20       6.57
+Season  4      180      14.69       8.14      24.48        4.21       3.97
+Oct. 1992       31       4.46       2.01       8.62        1.72       1.49
+Nov. 1992       30      16.32       8.07      29.56        5.56       4.44
+Dec. 1992       31       4.73       2.22       8.90        1.73       1.46
+Jan. 1993       31      16.55       8.18      29.99        5.64       4.69
+Feb. 1993       28      14.51       6.74      27.49        5.38       4.34
+Mar. 1993       31      73.51      37.12     131.21       24.30      19.84
+Apr. 1993       30     224.32     113.39     400.16       74.07      59.57
+May  1993       31     203.17     112.13     339.84       58.64      44.44
+June 1993       30     215.11     121.54     353.48       59.69      43.19
+July 1993       31     217.71     116.64     372.28       65.90      48.09
+Aug. 1993       31      88.27      44.44     157.93       29.32      20.90
+Sep. 1993       30      56.19      28.43     100.16       18.53      14.01
+Oct. 1993       31      22.87      11.90      39.97        7.24       5.77
+Nov. 1993       30      47.05      17.80     101.98       22.03      18.55
+Dec. 1993       31      14.45       7.16      26.16        4.91       4.00
+Jan. 1994       31      10.27       4.51      20.22        4.08       2.94
+Feb. 1994       28      28.98      13.89      53.67       10.29       8.20
+Mar. 1994       31      22.42      10.80      41.36        7.91       6.83
+Apr. 1994       30     213.26      99.14     403.53       78.88      60.28
+May  1994       31     311.09     165.29     535.19       95.37      75.26
+June 1994       30      85.26      47.30     142.06       24.40      18.52
+July 1994       31      75.23      41.55     125.76       21.69      15.70
+Aug. 1994       31      17.80       8.62      32.76        6.25       5.32
+Sep. 1994       30       6.24       2.69      12.41        2.53       2.18
+
+
+              MLE Load Estimates
+              ------------------
+
+                         Mean   Standard
+                 N       Load      Error
+              --------------------------
+Est. Period    730      83.15      15.00
+Season  1      184     174.18      42.10
+Season  2      184     116.22      22.14
+Season  3      182      25.39       6.54
+Season  4      180      14.69       3.95
+Oct. 1992       31       4.46       1.49
+Nov. 1992       30      16.32       4.42
+Dec. 1992       31       4.73       1.46
+Jan. 1993       31      16.55       4.68
+Feb. 1993       28      14.52       4.33
+Mar. 1993       31      73.52      19.77
+Apr. 1993       30     224.37      59.35
+May  1993       31     203.21      44.20
+June 1993       30     215.15      42.91
+July 1993       31     217.76      47.83
+Aug. 1993       31      88.29      20.81
+Sep. 1993       30      56.20      13.95
+Oct. 1993       31      22.88       5.75
+Nov. 1993       30      47.06      18.52
+Dec. 1993       31      14.45       3.99
+Jan. 1994       31      10.28       2.93
+Feb. 1994       28      28.98       8.17
+Mar. 1994       31      22.42       6.81
+Apr. 1994       30     213.30      60.10
+May  1994       31     311.15      74.93
+June 1994       30      85.28      18.42
+July 1994       31      75.24      15.60
+Aug. 1994       31      17.81       5.30
+Sep. 1994       30       6.24       2.18
+
+
+              LAD Load Estimates
+              ------------------
+
+                         Mean   Standard
+                 N       Load      Error
+              --------------------------
+Est. Period    730      80.68      12.09
+Season  1      184     166.32      31.46
+Season  2      184     107.76      38.47
+Season  3      182      29.95       7.30
+Season  4      180      16.73      11.69
+Oct. 1992       31       4.91       1.84
+Nov. 1992       30      19.87       8.30
+Dec. 1992       31       5.56       4.07
+Jan. 1993       31      19.21      14.11
+Feb. 1993       28      15.46      12.35
+Mar. 1993       31      75.39      38.65
+Apr. 1993       30     217.96      49.58
+May  1993       31     185.41      33.69
+June 1993       30     194.06      64.25
+July 1993       31     205.03      95.87
+Aug. 1993       31      90.15      39.23
+Sep. 1993       30      60.83      20.34
+Oct. 1993       31      26.20       6.36
+Nov. 1993       30      62.53      21.53
+Dec. 1993       31      17.58      10.12
+Jan. 1994       31      11.82       8.96
+Feb. 1994       28      32.12      22.08
+Mar. 1994       31      22.15      15.84
+Apr. 1994       30     210.08      44.14
+May  1994       31     289.99      59.21
+June 1994       30      74.41      17.40
+July 1994       31      67.80      20.96
+Aug. 1994       31      16.85       3.88
+Sep. 1994       30       6.35       1.54
+
+
+
+ Summary Statistics - Estimated Loads [LBS/DAY]
+ ----------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE      2.      11.      29.     117.     226.     350.     493.     598.
+ MLE       2.      11.      29.     117.     226.     351.     493.     598.
+ LAD       2.      12.      33.     109.     209.     329.     474.     612.
+
+
+
+ Summary Statistics - Estimated Concentrations [UG/L]
+ ----------------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE   0.074    0.167    0.533    2.141    3.078    3.569    4.192    4.393
+ MLE    0.074    0.167    0.533    2.142    3.079    3.570    4.193    4.394
+ LAD    0.086    0.192    0.553    2.069    2.719    3.218    3.910    4.208

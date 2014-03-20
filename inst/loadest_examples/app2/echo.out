@@ -1,0 +1,196 @@
+
+
+                                     LOADEST
+                      A Program to Estimate Constituent Loads
+                U.S. Geological Survey, Version: MOD48 (March 2013)
+                -------------------------------------------------
+
+ HEADER FILE     : header.inp                              
+ CALIBRATION FILE: calib.inp                               
+ ESTIMATION FILE : est.inp                                 
+
+
+
+ St.Joseph River near Newville, IN (Station # 04178000)                          
+
+ -----------------------------------------------------------
+
+    Echo Output File Part I: Reading from the Header File
+
+ -----------------------------------------------------------
+
+
+ Estimated Values Print Option (PRTOPT):    1
+ Standard Error Option (SEOPT)         :    3
+ Load Option (LDOPT)                   :    1
+
+
+
+ Loads for user-defined seasons are requested.
+
+ User-defined Seasons
+ --------------------
+ Number of User-defined Seasons (NSEAS):    4
+
+                Begin Date            End Date
+ Season           (SBEG)               (SEND)
+ -----------------------------------------------
+   1               0201                 0430
+   2               0501                 0731
+   3               0801                 1031
+   4               1101                 0131
+
+ Model Number 10 was selected. Regression Model Number 10 is used.
+
+
+
+
+ Beginning Month of Period (PBMON):  5
+ Ending Month of Period (PEMON)   :  7
+
+
+
+ Number of Constituents (NCONST):    1
+
+                                              Conc.            Load
+ Constituent                                  Units (Flag)     Units (Flag)
+ --------------------------------------------------------------------------
+ atrazine                                     ug/L (2)         lb/d (3) 
+
+
+
+ -----------------------------------------------------------
+
+                        Echo Output File Part II: 
+              Reading from the Calibration File
+
+ -----------------------------------------------------------
+
+
+ Data Variables:
+
+ Date      Time    Streamflow
+ ------------------------------------------------------
+ 19960307  1130    5.7000E+02
+ 19960430   845    9.4500E+02
+ 19960507   815    6.2700E+02
+ 19960604   830    4.2800E+02
+ 19960619   900    2.0700E+03
+ 19960719   830    1.3200E+02
+ 19960827   730    2.5000E+02
+ 19960910   800    7.6000E+01
+ 19961022   900    1.2500E+02
+ 19961119   900    2.5400E+02
+ 19961203   830    1.3300E+03
+ 19961218  1200    8.8200E+02
+ 19970114   930    5.9000E+02
+ 19970225   845    3.5100E+03
+ 19970317  1400    2.8500E+03
+ 19970416  1030    5.1000E+02
+ 19970422   845    3.5500E+02
+ 19970507   900    6.8100E+02
+ 19970514  1230    3.4600E+02
+ 19970520  1300    9.7000E+02
+ 19970528   845    1.1800E+03
+ 19970603  1330    1.2900E+03
+ 19970611   900    3.4500E+02
+ 19970617  1450    2.3900E+02
+ 19970708  1315    1.5800E+02
+ 19970724   830    2.0300E+02
+ 19970729  1315    1.1300E+02
+ 19970812  1215    6.8000E+01
+ 19970910   815    5.2700E+02
+ 19970923  1230    1.7900E+03
+ 19971022  1000    2.0000E+02
+ 19971118   840    2.9200E+02
+
+
+
+
+ Constituent: atrazine                                     
+
+                                  Detection
+ Date      Time    Concentr.      Limit
+ -------------------------------------------------
+ 19960307  1130    1.5000E-01     1.0000E-25
+ 19960430   845    1.9000E-01     1.0000E-25
+ 19960507   815    1.8000E-01     1.0000E-25
+ 19960604   830    5.5000E-01     1.0000E-25
+ 19960619   900    1.6000E+01     1.0000E-25
+ 19960719   830    1.4000E+00     1.0000E-25
+ 19960827   730    9.5000E-01     1.0000E-25
+ 19960910   800    5.0000E-01     1.0000E-25
+ 19961022   900    4.7000E-01     1.0000E-25
+ 19961119   900    2.7000E-01     1.0000E-25
+ 19961203   830    3.3500E-01     1.0000E-25
+ 19961218  1200    2.6600E-01     1.0000E-25
+ 19970114   930    2.8100E-01     1.0000E-25
+ 19970225   845    2.9000E-01     1.0000E-25
+ 19970317  1400    1.4800E-01     1.0000E-25
+ 19970416  1030    8.7000E-02     1.0000E-25
+ 19970422   845    1.3000E-01     1.0000E-25
+ 19970507   900    8.8200E+00     1.0000E-25
+ 19970514  1230    6.6400E-01     1.0000E-25
+ 19970520  1300    2.3000E+01     1.0000E-25
+ 19970528   845    1.4000E+01     1.0000E-25
+ 19970603  1330    1.5000E+01     1.0000E-25
+ 19970611   900    2.9600E+00     1.0000E-25
+ 19970617  1450    1.5700E+00     1.0000E-25
+ 19970708  1315    2.9800E+00     1.0000E-25
+ 19970724   830    9.5900E-01     1.0000E-25
+ 19970729  1315    7.9700E-01     1.0000E-25
+ 19970812  1215    4.5100E-01     1.0000E-25
+ 19970910   815    3.0400E-01     1.0000E-25
+ 19970923  1230    3.5700E-01     1.0000E-25
+ 19971022  1000    1.6500E-01     1.0000E-25
+ 19971118   840    1.6600E-01     1.0000E-25
+
+
+ * = Censored Observation
+ ^ = Missing Observation
+ # = uncensored observation is less than the detection limit that
+     was initially assigned (assigned detection limit makes it look
+     as if the observation is censored, when in fact it is not).
+     Assigned detection limit reset to 1.E-25.
+
+
+
+
+
+ ----------------------------------------------------------------------
+
+          Echo Output File Part III: Constituent Output Files
+
+ ----------------------------------------------------------------------
+
+
+ Constituent                         File Name
+ ------------------------------------------------------------
+ atrazine                            atrazine.out                                    
+
+
+
+ -----------------------------------------------------------
+
+                        Echo Output File Part IV:
+              Reading from the Estimation File
+
+ -----------------------------------------------------------
+
+
+ No. of Observations of the Data Variables per Day (NOBSPD):    1
+
+ (The remaining lines in the Estimation File are not echoed unless
+ an error occurs)
+
+
+
+
+
+ ----------------------------------------------------------------------
+
+          Echo Output File Part V: Other Warnings and Error Messages
+
+ ----------------------------------------------------------------------
+
+

@@ -1,0 +1,4 @@
+rloadest_tests
+==============
+The core of this project is in inst/test, where there is a script corresponding 
+to each branch of my GitHub rloadest fork.

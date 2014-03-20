@@ -1,0 +1,720 @@
+
+
+                                     LOADEST
+                      A Program to Estimate Constituent Loads
+                U.S. Geological Survey, Version: MOD48 (March 2013)
+                -------------------------------------------------
+
+ Thompson Fork, Grand River at Davis City, IA                                    
+
+ Constituent: nitrate                                      
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part Ia: Calibration (Load Regression)
+
+ ----------------------------------------------------------------------
+
+ Number of Observations           :   108
+ Number of Uncensored Observations:    64
+ "center" of Decimal Time         :   2004.229
+ "center" of Ln(Q)                :    4.4310
+ Period of record                 :    1999-2008
+
+
+ Model Evaluation Criteria Based on AMLE Results
+ -----------------------------------------------
+
+ Model #     AIC           SPPC
+ ----------------------------------
+  9           2.876        -164.674
+
+ Model # 9 selected
+
+
+ Selected Model:
+ ---------------
+
+ Ln(Load) = a0 + a1 LnQ + a2 LnQ^2 + a3 Sin(2 pi dtime) + a4 Cos(2 pi dtime)
+
+            + a5 dtime + a6 dtime^2
+
+ where:
+       Load  = constituent load [kg/d]
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+       Model Coefficients
+
+        a0        a1        a2        a3        a4        a5        a6
+       ----------------------------------------------------------------------
+ AMLE   4.7600    1.7958   -0.1352   -0.4771    0.9209   -0.0102   -0.0086
+ MLE    4.7645    1.7988   -0.1365   -0.4798    0.9216   -0.0102   -0.0089
+
+
+ AMLE Regression Statistics
+ --------------------------
+ R-Squared [%]                  : 83.45
+ Residual Variance              : 2.7487
+ Serial Correlation of Residuals: 0.2453
+ Prob. Plot Corr. Coeff. (PPCC) : 0.9921
+ Significance Level of PPCC Test: 4.773E-01
+
+ The calibration data set includes loads that are censored 
+ at multiple levels. The PPCC significance level is approximate.
+
+
+ Coeff.    Std.Dev.    t-ratio      P Value
+ --------------------------------------------
+ a0        0.3189        14.93      2.467E-19
+ a1        0.1331        13.49      9.054E-25
+ a2        0.0521        -2.59      5.092E-03
+ a3        0.2724        -1.75      7.333E-02
+ a4        0.2822         3.26      1.175E-03
+ a5        0.0733        -0.14      8.872E-01
+ a6        0.0301        -0.28      7.610E-01
+
+
+ Correlation Between Explanatory Variables
+ -----------------------------------------
+
+       Explanatory variable corresponding to:
+
+        a1        a2        a3        a4        a5
+       --------------------------------------------------
+   a2   0.0000
+   a3   0.3417   -0.1405
+   a4   0.4324    0.0019   -0.0008
+   a5   0.3731    0.0091    0.0951    0.0065
+   a6   0.2269    0.0589   -0.0074   -0.0107    0.0000
+
+
+ Additional Regression Statistics
+ --------------------------------
+ MLE Residual Variance: 2.8626
+
+
+
+ Comparison of Observed and Estimated Loads
+ ------------------------------------------
+   The summary statistics and bias diagnostics presented below are based
+ on a comparison of observed and estimated loads for all dates/times within 
+ the calibration data set. Although this comparison does not directly 
+ address errors in load estimation for unsampled dates/times, large 
+ discrepancies between observed and estimated loads are indicative of a 
+ poor model fit. Additional details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Loads in [KG/DAY] 
+ --------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+        -----------------------------------------------------------------------
+ Est.   4.34E-02 7.93E+00 6.39E+01 2.24E+03 1.37E+04 3.70E+04 1.33E+05 1.34E+05
+ Obs.   2.91E-01 1.57E+00 2.48E+01 1.28E+03 4.58E+03 8.51E+03 1.81E+04 1.82E+04
+ Est/Obs    0.15     5.04     2.57     1.75     2.99     4.35     7.34     7.35
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]   344.797
+ PLR        4.448
+ E        -31.097
+
+ where:
+
+    Bp  Load Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PLR Partial Load Ratio
+        Sum of estimated loads divided by sum of observed loads.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PLR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+ 
+ .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--.
+ |                W A R N I N G ! !             |
+ |                    ______                    |
+ |                 .-"      "-.                 |
+ |                /            \                |
+ |    _          |              |          _    |
+ |   ( \         |,  .-.  .-.  ,|         / )   |
+ |    > "=._     | )(__/  \__)( |     _.=" <    |
+ |   (_/"=._"=._ |/     /\     \| _.="_.="\_)   |
+ |          "=._"(_     ^^     _)"_.="          |
+ |              "=\__|IIIIII|__/="              |
+ |             _.="| \IIIIII/ |"=._             |
+ |   _     _.="_.="\          /"=._"=._     _   |
+ |  ( \_.="_.="     `--------`     "=._"=._/ )  |
+ |   > _.="                            "=._ <   |
+ |  (_/   jgs                              \_)  |
+ |                W A R N I N G ! !             |
+ |                                              |
+ .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+ 
+ IMPORTANT WARNING:
+
+ Load Bias (Bp) Exceeds + or - 25%
+ THE CALIBRATED MODEL SHOULD NOT BE USED FOR LOAD ESTIMATION
+
+
+ 
+ .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--.
+ |                W A R N I N G ! !             |
+ |                    ______                    |
+ |                 .-"      "-.                 |
+ |                /            \                |
+ |    _          |              |          _    |
+ |   ( \         |,  .-.  .-.  ,|         / )   |
+ |    > "=._     | )(__/  \__)( |     _.=" <    |
+ |   (_/"=._"=._ |/     /\     \| _.="_.="\_)   |
+ |          "=._"(_     ^^     _)"_.="          |
+ |              "=\__|IIIIII|__/="              |
+ |             _.="| \IIIIII/ |"=._             |
+ |   _     _.="_.="\          /"=._"=._     _   |
+ |  ( \_.="_.="     `--------`     "=._"=._/ )  |
+ |   > _.="                            "=._ <   |
+ |  (_/   jgs                              \_)  |
+ |                W A R N I N G ! !             |
+ |                                              |
+ .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+ 
+ IMPORTANT WARNING:
+
+ Nash Sutcliffe Efficiency Index (E) is less than zero.
+ The observed mean is a better estimate than the model estimates.
+ THE CALIBRATED MODEL SHOULD NOT BE USED FOR LOAD ESTIMATION
+
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part Ib: Calibration (Concentration Regression)
+
+ ----------------------------------------------------------------------
+
+
+
+ AMLE Regression Statistics
+ --------------------------
+
+ Model # 9 was selected for the load regression (PART Ia) and is used here:
+
+ Ln(Conc) = a0 + a1 LnQ + a2 LnQ^2 + a3 Sin(2 pi dtime) + a4 Cos(2 pi dtime)
+
+            + a5 dtime + a6 dtime^2
+
+ where:
+       Conc  = constituent concentration
+       LnQ   = Ln(Q) - center of Ln(Q)
+       dtime = decimal time - center of decimal time
+
+
+ Concentration Regression Results
+ --------------------------------
+ R-Squared [%]                  : 56.98
+ Residual Variance              : 2.7487
+
+ Coeff.    Value         Std.Dev.     t-ratio     P Value
+ ----------------------------------------------------------
+ a0       -0.5656        0.3189       -1.77       7.037E-02
+ a1        0.7958        0.1331        5.98       2.290E-09
+ a2       -0.1352        0.0521       -2.59       5.092E-03
+ a3       -0.4771        0.2724       -1.75       7.333E-02
+ a4        0.9209        0.2822        3.26       1.175E-03
+ a5       -0.0102        0.0733       -0.14       8.872E-01
+ a6       -0.0086        0.0301       -0.28       7.610E-01
+
+
+ Comparison of Observed and Estimated Concentrations
+ ---------------------------------------------------
+   The summary statistics and bias diagnostics presented below are
+ based on a comparison of observed and estimated concentrations for
+ all dates/times within the calibration data set. Although this
+ comparison does not directly address errors in concentration estimation
+ for unsampled dates/times, large discrepancies between observed and
+ estimated concentrations are indicative of a poor model fit. Additional
+ details and warnings are provided below.
+
+ Note: The comparison that follows uses a concentration equal to 1/2 the
+ detection limit when an observation is censored. The summary stats and
+ bias diagnostics are therefore slightly inaccurate for censored data sets.
+
+
+ Summary Stats: Est. and Obs. Concentrations in      MG/L
+ -----------------------------------------------------------
+                 25th              75th     90th     95th     99th
+        Min.     Pct      Med.     Pct      Pct      Pct      Pct      Max.
+       ------------------------------------------------------------------------
+ Est.   7.46E-03 2.06E-01 8.09E-01 3.66E+00 9.60E+00 1.12E+01 1.29E+01 1.30E+01
+ Obs.   2.50E-02 5.00E-02 6.65E-01 1.80E+00 3.04E+00 4.10E+00 5.08E+00 5.10E+00
+ Est/Obs    0.30     4.11     1.22     2.04     3.16     2.73     2.55     2.54
+
+ Est/Obs > 1 indicates overestimation; Est/Obs < 1 indicates underestimation
+
+
+ Bias Diagnostics
+ ----------------
+ Bp [%]   140.812
+ PCR        2.408
+ E         -6.304
+
+ where:
+
+    Bp  Concentration Bias in Percent
+        Positive (negative) values indicate over (under) estimation.
+        ***The model should not be used when the + or - bias exceeds 25%***
+
+    PCR Partial Concentration Ratio
+        Sum of est. concentrations divided by sum of obs. concentrations.
+        Values > 1 indicate overestimation; values < 1 indicate underestimation.
+        PCR = (Bp + 100) / 100
+
+    E   Nash Sutcliffe Efficiency Index
+        E ranges from -infinity to 1.0
+        E = 1; a perfect fit to observed data.
+        E = 0; model estimates are as accurate as the mean of observed data.
+        E < 0; the observed mean is a better estimate than the model estimates.
+
+ 
+ .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--.
+ |                W A R N I N G ! !             |
+ |                    ______                    |
+ |                 .-"      "-.                 |
+ |                /            \                |
+ |    _          |              |          _    |
+ |   ( \         |,  .-.  .-.  ,|         / )   |
+ |    > "=._     | )(__/  \__)( |     _.=" <    |
+ |   (_/"=._"=._ |/     /\     \| _.="_.="\_)   |
+ |          "=._"(_     ^^     _)"_.="          |
+ |              "=\__|IIIIII|__/="              |
+ |             _.="| \IIIIII/ |"=._             |
+ |   _     _.="_.="\          /"=._"=._     _   |
+ |  ( \_.="_.="     `--------`     "=._"=._/ )  |
+ |   > _.="                            "=._ <   |
+ |  (_/   jgs                              \_)  |
+ |                W A R N I N G ! !             |
+ |                                              |
+ .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+ 
+ IMPORTANT WARNING:
+
+ Concentration Bias (Bp) Exceeds + or - 25%
+ THE CALIBRATED MODEL SHOULD NOT BE USED FOR CONCENTRATION ESTIMATION
+
+
+ 
+ .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--.
+ |                W A R N I N G ! !             |
+ |                    ______                    |
+ |                 .-"      "-.                 |
+ |                /            \                |
+ |    _          |              |          _    |
+ |   ( \         |,  .-.  .-.  ,|         / )   |
+ |    > "=._     | )(__/  \__)( |     _.=" <    |
+ |   (_/"=._"=._ |/     /\     \| _.="_.="\_)   |
+ |          "=._"(_     ^^     _)"_.="          |
+ |              "=\__|IIIIII|__/="              |
+ |             _.="| \IIIIII/ |"=._             |
+ |   _     _.="_.="\          /"=._"=._     _   |
+ |  ( \_.="_.="     `--------`     "=._"=._/ )  |
+ |   > _.="                            "=._ <   |
+ |  (_/   jgs                              \_)  |
+ |                W A R N I N G ! !             |
+ |                                              |
+ .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+ 
+ IMPORTANT WARNING:
+
+ Nash Sutcliffe Efficiency Index (E) is less than zero.
+ The observed mean is a better estimate than the model estimates.
+ THE CALIBRATED MODEL SHOULD NOT BE USED FOR CONCENTRATION ESTIMATION
+
+
+
+ NOTE: Additional information on model calibration is included in the
+       residual output file. LOADEST users should conduct a thorough
+       residuals analysis using the data contained therein (checks for
+       heteroscedasticity and non-normality).  Example residual plots
+       are shown in Figures 7, 8, 9, and 17 of the LOADEST documentation
+       (Runkel et al., 2004).
+
+
+
+ ----------------------------------------------------------------------
+
+ Constituent Output File Part IIa: Estimation (test for extrapolation)
+
+                 Load Estimates for 19991001-20090930
+ ----------------------------------------------------------------------
+
+
+
+ Streamflow Summary Statistics [cfs]
+ -----------------------------------
+
+ Data    Mean  Minimum 10th Pct 25th Pct   Median 75th Pct 90th Pct  Maximum
+ ---------------------------------------------------------------------------
+ Cal.    322.       2.       6.      12.      31.     233.     625.    5326.
+ Est.    359.       1.       7.      15.      52.     244.     728.   22473.
+
+ WARNING: The maximum estimation data set steamflow exceeds the maximum
+ calibration data set streamflow.  Load estimates require extrapolation.
+
+ Maximum Estimation Streamflow :  2.2473E+04
+ Maximum Calibration Streamflow:  5.3262E+03
+
+
+
+
+
+ ----------------------------------------------------------------------
+
+     Constituent Output File Part IIb: Estimation (Load Estimates)
+
+                 Load Estimates for 19991001-20090930
+ ----------------------------------------------------------------------
+
+
+
+ Load Estimates [KG/DAY] 
+ ------------------------
+ 
+ .-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--.
+ |                W A R N I N G ! !             |
+ |                    ______                    |
+ |                 .-"      "-.                 |
+ |                /            \                |
+ |    _          |              |          _    |
+ |   ( \         |,  .-.  .-.  ,|         / )   |
+ |    > "=._     | )(__/  \__)( |     _.=" <    |
+ |   (_/"=._"=._ |/     /\     \| _.="_.="\_)   |
+ |          "=._"(_     ^^     _)"_.="          |
+ |              "=\__|IIIIII|__/="              |
+ |             _.="| \IIIIII/ |"=._             |
+ |   _     _.="_.="\          /"=._"=._     _   |
+ |  ( \_.="_.="     `--------`     "=._"=._/ )  |
+ |   > _.="                            "=._ <   |
+ |  (_/   jgs                              \_)  |
+ |                W A R N I N G ! !             |
+ |                                              |
+ .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.
+ 
+ IMPORTANT WARNING:
+
+ As noted in Part Ia, the calibrated model should not be used for load
+ estimation. ALL LOAD ESTIMATES THAT FOLLOW ARE HIGHLY UNCERTAIN. See
+ Part Ia for additional details.
+
+
+
+              AMLE Load Estimates
+              -------------------
+
+                                 95% Conf.Intervals
+                         Mean    ------------------   Std Error   Standard
+                 N       Load      Lower      Upper  Prediction      Error
+              ------------------------------------------------------------
+Est. Period   3653      4689.      1075.     13489.       3370.      3245.
+Oct. 1999       31       5.22       0.53      21.24        6.25       4.14
+Nov. 1999       30      19.61       1.41      89.12       28.16      15.65
+Dec. 1999       31      13.84       1.81      51.17       14.31       9.77
+Jan. 2000       31      64.75       7.38     252.29       72.45      47.80
+Feb. 2000       29       304.        19.      1440.        470.       237.
+Mar. 2000       31     122.83      12.37     500.37      147.26      89.37
+Apr. 2000       30      98.79       3.26     544.46      209.60      69.12
+May  2000       31       9.83       0.88      41.70       12.58       7.18
+June 2000       30       665.        25.      3578.       1334.       474.
+July 2000       31      72.35       6.48     306.81       92.49      45.62
+Aug. 2000       31       9.23       0.58      43.71       14.26       5.46
+Sep. 2000       30       0.92       0.06       4.35        1.41       0.51
+Oct. 2000       31       0.41       0.05       1.64        0.48       0.26
+Nov. 2000       30      19.77       1.78      83.70       25.21      11.44
+Dec. 2000       31       1.86       0.18       7.68        2.28       0.94
+Jan. 2001       31       370.         9.      2171.        926.       246.
+Feb. 2001       28     16647.       941.     80952.      27036.     13646.
+Mar. 2001       31     48654.      4871.    198622.      58526.     41471.
+Apr. 2001       30     24157.      2198.    101880.      30609.     18215.
+May  2001       31     18147.      1812.     74154.      21862.     13999.
+June 2001       30     10230.       935.     43087.      12935.      8282.
+July 2001       31       805.        30.      4311.       1597.       518.
+Aug. 2001       31      22.84       2.44      91.19       26.53      11.07
+Sep. 2001       30      63.62       3.10     321.37      111.32      39.58
+Oct. 2001       31     137.99       6.22     710.43      251.11     100.94
+Nov. 2001       30      27.21       4.54      90.88       24.24      13.12
+Dec. 2001       31      32.59       5.44     108.88       29.04      14.98
+Jan. 2002       31      24.19       3.65      84.39       22.95      10.36
+Feb. 2002       28       339.        37.      1350.        392.       174.
+Mar. 2002       31       694.        56.      3041.        936.       360.
+Apr. 2002       30      1664.       112.      7699.       2467.       830.
+May  2002       31      6436.       343.     31792.      10773.      4592.
+June 2002       30       270.        25.      1133.        339.       129.
+July 2002       31      75.10       3.00     397.30      144.92      37.42
+Aug. 2002       31       9.23       0.95      37.26       10.91       4.23
+Sep. 2002       30       0.68       0.03       3.62        1.34       0.33
+Oct. 2002       31       3.26       0.18      15.85        5.29       1.54
+Nov. 2002       30       2.35       0.40       7.82        2.08       1.13
+Dec. 2002       31       2.60       0.42       8.78        2.35       1.29
+Jan. 2003       31       1.53       0.22       5.44        1.49       0.94
+Feb. 2003       28       458.        12.      2642.       1096.       263.
+Mar. 2003       31       684.        47.      3155.       1008.       360.
+Apr. 2003       30       561.        63.      2195.        632.       280.
+May  2003       31      8021.       676.     34684.      10588.      4913.
+June 2003       30      1761.       119.      8138.       2605.      1008.
+July 2003       31       198.         8.      1037.        374.       102.
+Aug. 2003       31       0.88       0.08       3.71        1.11       0.50
+Sep. 2003       30       0.22       0.02       0.90        0.27       0.15
+Oct. 2003       31       0.13       0.01       0.53        0.15       0.11
+Nov. 2003       30       311.        12.      1665.        615.       256.
+Dec. 2003       31      31.09       4.75     107.94       29.29      14.77
+Jan. 2004       31      25.26       2.98      97.16       27.71      11.73
+Feb. 2004       29      3664.       226.     17401.       5693.      2247.
+Mar. 2004       31     19410.      1952.     79119.      23293.     12501.
+Apr. 2004       30      4624.       592.     17230.       4836.      2428.
+May  2004       31     10073.       912.     42549.      12796.      7135.
+June 2004       30      3029.       357.     11655.       3324.      1622.
+July 2004       31      1070.        49.      5476.       1923.       695.
+Aug. 2004       31      4108.       122.     23106.       9173.      7729.
+Sep. 2004       30       682.        43.      3218.       1047.       509.
+Oct. 2004       31      16.04       2.68      53.53       14.27       7.80
+Nov. 2004       30      71.18       9.31     263.10       73.55      39.08
+Dec. 2004       31      58.02       6.86     222.98       63.58      29.92
+Jan. 2005       31       772.        33.      4037.       1452.       476.
+Feb. 2005       28     12224.       893.     55272.      17401.      8012.
+Mar. 2005       31      1441.       236.      4852.       1299.       776.
+Apr. 2005       30     15513.      1510.     63946.      18950.      9115.
+May  2005       31      9362.       649.     43004.      13699.      6659.
+June 2005       30      7500.       692.     31486.       9433.      5038.
+July 2005       31       231.        13.      1117.        371.       109.
+Aug. 2005       31      21.06       2.26      83.91       24.39       9.66
+Sep. 2005       30       1.54       0.24       5.35        1.45       0.81
+Oct. 2005       31       0.44       0.06       1.59        0.44       0.29
+Nov. 2005       30       2.67       0.27      10.87        3.20       1.27
+Dec. 2005       31       9.16       1.05      35.58       10.20       4.24
+Jan. 2006       31      23.08       3.15      83.88       23.26      10.94
+Feb. 2006       28       7.39       1.01      26.86        7.45       4.48
+Mar. 2006       31       342.         4.      2191.       1193.       169.
+Apr. 2006       30      1721.        68.      9118.       3331.       814.
+May  2006       31      4755.       211.     24570.       8719.      2595.
+June 2006       30       221.         9.      1153.        415.       104.
+July 2006       31       5.39       0.74      19.54        5.41       3.02
+Aug. 2006       31       385.        15.      2057.        760.       227.
+Sep. 2006       30      14.60       1.81      55.03       15.54       6.64
+Oct. 2006       31       8.51       0.42      42.90       14.83       4.04
+Nov. 2006       30       501.        11.      2955.       1274.       344.
+Dec. 2006       31       549.        13.      3197.       1347.       326.
+Jan. 2007       31      2391.       127.     11824.       4011.      1462.
+Feb. 2007       28     16922.       891.     83828.      28483.     11969.
+Mar. 2007       31     20922.      2222.     83649.      24359.     11796.
+Apr. 2007       30     18880.      1671.     80364.      24285.     12585.
+May  2007       31     20374.       602.    114698.      45598.     40029.
+June 2007       30      2036.       136.      9454.       3037.      1011.
+July 2007       31      47.31       5.73     180.24       51.15      27.16
+Aug. 2007       31      2980.       110.     16041.       5979.      4144.
+Sep. 2007       30       415.        59.      1477.        406.       240.
+Oct. 2007       31      3935.       286.     17819.       5616.      3453.
+Nov. 2007       30       690.        98.      2471.        680.       462.
+Dec. 2007       31      3732.       420.     14605.       4204.      2611.
+Jan. 2008       31      6998.       565.     30686.       9454.      4762.
+Feb. 2008       29      6593.       747.     25745.       7401.      4609.
+Mar. 2008       31     40317.      3484.    172968.      52531.     34708.
+Apr. 2008       30     34659.      3562.    140193.      41092.     28268.
+May  2008       31     10084.      1204.     38607.      10985.      6871.
+June 2008       30     23340.      1008.    121361.      43374.     39082.
+July 2008       31      6893.       242.     37519.      14194.     12362.
+Aug. 2008       31       644.        47.      2922.        922.       463.
+Sep. 2008       30      1346.        41.      7518.       2953.      1532.
+Oct. 2008       31      3715.       224.     17759.       5843.      3897.
+Nov. 2008       30      4355.       394.     18408.       5538.      4065.
+Dec. 2008       31      7952.       351.     41134.      14615.      8773.
+Jan. 2009       31      2642.       213.     11592.       3573.      2779.
+Feb. 2009       28      4901.       342.     22465.       7145.      5377.
+Mar. 2009       31     35713.      1862.    177368.      60415.     47868.
+Apr. 2009       30     14340.       630.     74259.      26418.     19941.
+May  2009       31      9807.       471.     49715.      17285.     13187.
+June 2009       30      5301.       332.     25073.       8175.      6281.
+July 2009       31      4605.       168.     24844.       9288.      7620.
+Aug. 2009       31      1624.        56.      8871.       3373.      2493.
+Sep. 2009       30     128.10       6.41     642.93      221.28     183.50
+
+
+              MLE Load Estimates
+              ------------------
+
+                         Mean   Standard
+                 N       Load      Error
+              --------------------------
+Est. Period   3653      5034.      3339.
+Oct. 1999       31       5.62       4.03
+Nov. 1999       30      21.24      15.14
+Dec. 1999       31      14.83       9.59
+Jan. 2000       31      70.08      45.83
+Feb. 2000       29     334.27     217.26
+Mar. 2000       31     132.85      85.99
+Apr. 2000       30     106.84      66.67
+May  2000       31      10.44       7.26
+June 2000       30     714.56     467.08
+July 2000       31      77.64      44.72
+Aug. 2000       31       9.87       5.41
+Sep. 2000       30       0.99       0.49
+Oct. 2000       31       0.45       0.23
+Nov. 2000       30      21.15      11.41
+Dec. 2000       31       1.98       0.91
+Jan. 2001       31     406.35     225.67
+Feb. 2001       28     17956.     13683.
+Mar. 2001       31     52104.     42346.
+Apr. 2001       30     25850.     18613.
+May  2001       31     19333.     14405.
+June 2001       30     10906.      8508.
+July 2001       31     859.89     524.05
+Aug. 2001       31      24.31      11.18
+Sep. 2001       30      68.22      39.83
+Oct. 2001       31     148.86     100.98
+Nov. 2001       30      28.92      13.42
+Dec. 2001       31      34.66      15.27
+Jan. 2002       31      25.66      10.56
+Feb. 2002       28     366.50     165.89
+Mar. 2002       31     751.69     337.39
+Apr. 2002       30      1792.       797.
+May  2002       31      6878.      4716.
+June 2002       30     288.15     128.59
+July 2002       31      80.24      37.77
+Aug. 2002       31       9.82       4.24
+Sep. 2002       30       0.73       0.31
+Oct. 2002       31       3.48       1.56
+Nov. 2002       30       2.52       1.06
+Dec. 2002       31       2.78       1.20
+Jan. 2003       31       1.66       0.85
+Feb. 2003       28     498.99     245.05
+Mar. 2003       31     741.51     339.65
+Apr. 2003       30     603.22     272.52
+May  2003       31      8589.      4963.
+June 2003       30      1885.      1016.
+July 2003       31     211.70     103.02
+Aug. 2003       31       0.96       0.45
+Sep. 2003       30       0.24       0.12
+Oct. 2003       31       0.15       0.09
+Nov. 2003       30     336.78     257.70
+Dec. 2003       31      33.13      15.06
+Jan. 2004       31      26.93      11.87
+Feb. 2004       29      3998.      2110.
+Mar. 2004       31     20976.     12313.
+Apr. 2004       30      5010.      2290.
+May  2004       31     10793.      7227.
+June 2004       30      3250.      1610.
+July 2004       31      1148.       701.
+Aug. 2004       31      4508.      7557.
+Sep. 2004       30     732.69     517.42
+Oct. 2004       31      17.08       7.94
+Nov. 2004       30      76.12      39.89
+Dec. 2004       31      62.09      30.30
+Jan. 2005       31     843.92     445.16
+Feb. 2005       28     13273.      7764.
+Mar. 2005       31      1565.       724.
+Apr. 2005       30     16684.      9011.
+May  2005       31     10055.      6708.
+June 2005       30      8041.      5069.
+July 2005       31     247.33     108.14
+Aug. 2005       31      22.45       9.69
+Sep. 2005       30       1.66       0.72
+Oct. 2005       31       0.49       0.24
+Nov. 2005       30       2.86       1.23
+Dec. 2005       31       9.75       4.27
+Jan. 2006       31      24.57      11.05
+Feb. 2006       28       7.88       4.41
+Mar. 2006       31     370.70     155.12
+Apr. 2006       30      1857.       762.
+May  2006       31      5094.      2578.
+June 2006       30     236.51     101.24
+July 2006       31       5.75       2.94
+Aug. 2006       31     411.58     229.34
+Sep. 2006       30      15.50       6.76
+Oct. 2006       31       9.06       4.17
+Nov. 2006       30     542.21     339.71
+Dec. 2006       31     594.98     311.77
+Jan. 2007       31      2595.      1395.
+Feb. 2007       28     18167.     12048.
+Mar. 2007       31     22570.     11390.
+Apr. 2007       30     20241.     12751.
+May  2007       31     22345.     38061.
+June 2007       30      2175.       993.
+July 2007       31      50.31      27.55
+Aug. 2007       31      3219.      4126.
+Sep. 2007       30     443.19     241.59
+Oct. 2007       31      4197.      3569.
+Nov. 2007       30     743.60     455.94
+Dec. 2007       31      4049.      2523.
+Jan. 2008       31      7593.      4551.
+Feb. 2008       29      7205.      4283.
+Mar. 2008       31     43099.     35661.
+Apr. 2008       30     36887.     29083.
+May  2008       31     10770.      6918.
+June 2008       30     25140.     38762.
+July 2008       31      7479.     12128.
+Aug. 2008       31     686.49     469.12
+Sep. 2008       30      1432.      1580.
+Oct. 2008       31      3955.      4048.
+Nov. 2008       30      4676.      4110.
+Dec. 2008       31      8514.      9054.
+Jan. 2009       31      2895.      2676.
+Feb. 2009       28      5376.      5163.
+Mar. 2009       31     37983.     49743.
+Apr. 2009       30     15334.     20652.
+May  2009       31     10447.     13651.
+June 2009       30      5648.      6443.
+July 2009       31      4917.      7800.
+Aug. 2009       31      1733.      2570.
+Sep. 2009       30     137.70     185.68
+
+
+
+ Summary Statistics - Estimated Loads [KG/DAY] 
+ ----------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE      0.      11.     135.    2668.   12146.   25424.   75829.  147145.
+ MLE       0.      11.     144.    2880.   13101.   27290.   81484.  156303.
+
+
+
+ Summary Statistics - Estimated Concentrations [MG/L]
+ ----------------------------------------------------
+
+                  25th              75th     90th     95th     99th
+         Min.      Pct     Med.      Pct      Pct      Pct      Pct     Max.
+      ----------------------------------------------------------------------
+ AMLE   0.002    0.270    1.018    3.921    8.152   10.815   14.879   16.775
+
+ WARNING: Maximum estimated concentration exceeds twice the maximum calibration
+ concentration of     5.100 MG/L
+
+ MLE    0.002    0.287    1.091    4.223    8.818   11.667   16.027   18.041
+
+ WARNING: Maximum estimated concentration exceeds twice the maximum calibration
+ concentration of     5.100 MG/L
+

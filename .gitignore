@@ -1,5 +1,8 @@
-# History files
+.Rbuildignore
 .Rhistory
+.Rprofile
+.Rproj.user
+rloadest_tests.Rproj
 
 # Example code in package build process
 *-Ex.R

@@ -1,0 +1,8 @@
+Package: rloadesttests
+Title: Test patches to rloadest
+Description: This package is meant to work with pangia/rloadest.
+Version: 0.1
+Author: Alison Appling
+Depends: R (>= 3.0.2)
+License: MIT
+URL: https://github.com/pangia/rloadest_tests
